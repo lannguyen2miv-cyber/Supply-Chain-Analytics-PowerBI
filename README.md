@@ -31,7 +31,7 @@ The dashboard helps answer the following business questions:
 - How do sales, discounts and profits evolve over time?
 - Which departments offer the best balance between sales and profitability?
 
-## 🗂 Dataset
+## Dataset
 
 Source:
 
@@ -113,7 +113,7 @@ Examples
 - Standard Class accounts for the largest shipment volume.
 - Europe and LATAM contribute the highest revenue.
 - Several departments maintain high sales but relatively lower profitability.
-## 🚀 Business Recommendations
+## Business Recommendations
 Supply Chain
 - Optimize fulfillment for high-volume departments.
 - Rebalance shipping capacity during peak quarters.
