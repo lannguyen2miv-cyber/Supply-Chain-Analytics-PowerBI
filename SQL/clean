@@ -1,0 +1,40 @@
+DROP TABLE IF EXISTS orders_clean;
+CREATE TABLE orders_clean AS
+SELECT
+    "Days for shipping (real)"      AS Days_Shipping_Real,
+    "Days for shipment (scheduled)" AS Days_Shipping_Scheduled,
+    "Delivery Status"               AS Delivery_Status,
+    "Late_delivery_risk"            AS Late_Delivery_Risk,
+    "Shipping Mode"                 AS Shipping_Mode,
+    "order date (DateOrders)"       AS Order_Date_Raw,
+    "shipping date (DateOrders)"    AS Shipping_Date_Raw,
+    "Benefit per order"             AS Benefit_Per_Order,
+    "Sales per customer"            AS Sales_Per_Customer,
+    "Order Item Total"              AS Order_Item_Total,
+    "Order Profit Per Order"        AS Order_Profit_Per_Order,
+    "Order Item Discount"           AS Order_Item_Discount,
+    "Order Item Discount Rate"      AS Order_Item_Discount_Rate,
+    "Order Item Product Price"      AS Order_Item_Product_Price,
+    "Order Item Profit Ratio"       AS Order_Item_Profit_Ratio,
+    "Order Item Quantity"           AS Order_Item_Quantity,
+    "Product Price"                 AS Product_Price,
+    "Customer Id"                   AS Customer_Id,
+    "Customer Segment"              AS Customer_Segment,
+    "Customer Country"              AS Customer_Country,
+    "Category Name"                 AS Category_Name,
+    "Department Name"               AS Department_Name,
+    "Product Card Id"               AS Product_Card_Id,
+    "Order Id"                      AS Order_Id,
+    "Order Item Id"                 AS Order_Item_Id,
+    "Order Customer Id"             AS Order_Customer_Id,
+    "Order Status"                  AS Order_Status,
+    "Order Country"                 AS Order_Country,
+    "Order Region"                  AS Order_Region
+FROM DataCoSupplyChainDataset
+WHERE
+    "Order Id" IS NOT NULL
+    AND "Order Item Id" IS NOT NULL
+    AND "Customer Id" IS NOT NULL
+    AND Sales>=0
+    AND "Order Item Quantity">=0
+    AND "Order Item Product Price">=0;
