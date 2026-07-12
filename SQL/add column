@@ -1,0 +1,19 @@
+ALTER TABLE orders_clean
+ADD COLUMN Quarter_Year TEXT;
+UPDATE orders_clean
+SET Quarter_Year =
+'Q'
+||
+((CAST(substr(Order_Date_Raw,1,instr(Order_Date_Raw,'/')-1) AS INTEGER)-1)/3+1)
+||
+'/'
+||
+substr(
+Order_Date_Raw,
+instr(Order_Date_Raw,'/')
++
+instr(substr(Order_Date_Raw,instr(Order_Date_Raw,'/')+1),'/')
++
+1,`
+4
+);
